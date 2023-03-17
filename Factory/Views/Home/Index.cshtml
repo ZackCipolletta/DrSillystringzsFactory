@@ -6,8 +6,6 @@
 @using Factory.Models
 
 <hr>
-
-
 <h4>Machines</h4>
 @if (Model["machines"].Length == 0)
 {
@@ -20,8 +18,19 @@
   }
 </ul>
 <br>
+<h4>Engineers</h4>
+@if (Model["engineers"].Length == 0)
+{
+  <p>No engineers have been added yet!</p>
+} 
+<ul>
+  @foreach (Engineer engineer in Model["engineers"])
+  {
+    <li>@Html.ActionLink(@engineer.Name, "Details", "Engineers", new { id = @engineer.EngineerId})</li>
+  }
+</ul>
+<br>
 
-
-<hr>
+<hr class="my-2">
 <p class="nav" >@Html.ActionLink("Manage machines", "Index", "Machines")</p> 
 <p class="nav" >@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>

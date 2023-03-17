@@ -5,42 +5,39 @@
 @using Factory.Models
 @model Factory.Models.Machine
 
-<h2>Edit</h2>
-
-<h4>Edit this machine: @Html.DisplayFor(model => model.Description)</h4>
+<h1 class="text-center">Edit this machine</h1>
 <hr>
-<div>
+
   @using (Html.BeginForm())
   {
     @Html.HiddenFor(model => model.MachineId)
 
     @Html.LabelFor(model => model.Name)<br>
     @Html.EditorFor(model => model.Name)<br> 
-    @Html.LabelFor(model => model.Description)<br>
+    <p class="mt-2 mb-0">@Html.LabelFor(model => model.Description)</p>
     @Html.EditorFor(model => model.Description)
     <br>
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save"  class="mt-1"/>
   }
   <br>
-      <h4>This machine has the following engineers:</h4>
+  <h4>This machine has the following engineers:</h4>
+
   <ul>
     @foreach (EngineerMachine join in Model.JoinEntities)
-    {
-      <li>Engineer: @join.Engineer.Name
-      @using (Html.BeginForm("DeleteJoin", "Machines"))
       {
-        @Html.Hidden("joinId", @join.EngineerMachineId)
-        <input type="submit" value="Delete"/>
+        <li>@join.Engineer.Name
+        @using (Html.BeginForm("DeleteJoin", "Machines"))
+        {
+          @Html.Hidden("joinId", @join.EngineerMachineId)
+          <input type="submit" value="Delete"/>
+        }
+        </li>
       }
-      </li>
-    }
   </ul>
 
     @* <span>Due date: </span> *@
     @* <input type="date">  *@
 
-
-</div>
 <br>
 <hr class="my-2">
 <p class="nav">@Html.ActionLink("Back to list", "Index")</p>

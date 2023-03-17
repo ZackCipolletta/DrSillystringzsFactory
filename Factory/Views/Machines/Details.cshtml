@@ -5,7 +5,7 @@
 @using Factory.Models
 @model Factory.Models.Machine
 
-<h2>Machine Details</h2>
+<h1 class="text-center">Machine Details</h1>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
@@ -21,7 +21,8 @@ else
   <ul>
     @foreach (EngineerMachine join in Model.JoinEntities)
     {
-      <li>Engineer: @join.Engineer.Name</li>
+      @* <li>Engineer: @join.Engineer.Name</li> *@
+            <li>Engineer: @Html.ActionLink(@join.engineer.Name, "Details", "Engineers", new { id = @join.engineer.EngineerId})</li>
     }
   </ul>
 }
