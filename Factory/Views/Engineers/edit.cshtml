@@ -14,10 +14,12 @@
   @Html.HiddenFor(model => model.EngineerId)
 
   @Html.LabelFor(model => model.Name)<br>
-  @Html.EditorFor(model => model.Name)<br><br>
+  @Html.EditorFor(model => model.Name)<br><p></p>
   @Html.LabelFor(model => model.Details)<br>
   @Html.EditorFor(model => model.Details)
+  <p class="mt-1"> 
 
+  </p>
   <input type="submit" value="Save" />
   <br>
   <br>
@@ -32,5 +34,6 @@
       </li>
     }
 }
-
+<br>
+<hr class="my-2">
 <p class="nav">@Html.ActionLink("Back to list", "Index")</p>

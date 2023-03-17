@@ -8,14 +8,14 @@
 <h2>Edit</h2>
 
 <h4>Edit this machine: @Html.DisplayFor(model => model.Description)</h4>
-
+<hr>
 <div>
   @using (Html.BeginForm())
   {
     @Html.HiddenFor(model => model.MachineId)
 
     @Html.LabelFor(model => model.Name)<br>
-    @Html.EditorFor(model => model.Name)<br> <br>
+    @Html.EditorFor(model => model.Name)<br> 
     @Html.LabelFor(model => model.Description)<br>
     @Html.EditorFor(model => model.Description)
     <br>
@@ -42,4 +42,5 @@
 
 </div>
 <br>
+<hr class="my-2">
 <p class="nav">@Html.ActionLink("Back to list", "Index")</p>
