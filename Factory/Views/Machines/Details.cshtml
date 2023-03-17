@@ -9,6 +9,8 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
+<p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
+<br>
 @if(@Model.JoinEntities.Count == 0)
 {
   <p>This machine does not have any engineers yet!</p>

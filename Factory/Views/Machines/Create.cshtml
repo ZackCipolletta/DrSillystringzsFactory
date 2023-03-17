@@ -10,10 +10,12 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)<span> </span>
-  @Html.TextBoxFor(model => model.Name)
-
-
+  @Html.LabelFor(model => model.Name)<br>
+  @Html.TextBoxFor(model => model.Name) <br> <br>
+  @Html.LabelFor(model => model.Description)<br>
+  @Html.TextBoxFor(model => model.Description)
+  <br class="small">
+  <br>
   <input type="submit" value="Add new machine" class="btn btn-primary" />
 }
 <p class="nav">@Html.ActionLink("Show all machines", "Index")</p>

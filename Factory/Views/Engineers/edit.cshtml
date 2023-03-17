@@ -17,7 +17,8 @@
   @Html.EditorFor(model => model.Name)
 
   <input type="submit" value="Save" />
-
+  <br>
+  <br>
   @foreach(EngineerMachine join in Model.JoinEntities)
     {
       <li>@join.Machine.Name
