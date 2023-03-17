@@ -13,11 +13,9 @@
   {
     @Html.HiddenFor(model => model.MachineId)
 
-    @Html.LabelFor(model => model.Description)
-    @Html.EditorFor(model => model.Description)
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
 
-    @Html.LabelFor(model => model.DueDate)
-    @Html.EditorFor(model => model.DueDate, new { htmlAttributes = new { @class = "form-control datepicker date-input", type = "date" } })
     @* <span>Due date: </span> *@
     @* <input type="date">  *@
 

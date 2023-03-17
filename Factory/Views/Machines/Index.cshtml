@@ -12,18 +12,10 @@
   {
   <li>
     
-    @Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId}) |  | @machine.DueDate.ToShortDateString()
-
-
-    @using (Html.BeginForm("MarkComplete", "Machines"))
-{
-    @Html.Hidden("Id", machine.MachineId)
-    @Html.CheckBox("Completed")
-    <input type="submit" value="Save"/>
-}
+    @Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId}) | @machine.Engineer.Name
   </li>   
   }
-    <a name="date">@Html.ActionLink("Sort by date", "Index", "Machines", new {sortBy = "date"})</a>
+    @* <a name="date">@Html.ActionLink("Sort by date", "Index", "Machines", new {sortBy = "date"})</a> *@
 </ul>
 
 <p>@Html.ActionLink("Add new machine", "Create")</p>

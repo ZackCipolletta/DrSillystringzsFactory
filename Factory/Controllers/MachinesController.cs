@@ -9,7 +9,6 @@ namespace Factory.Controllers
 {
   public class MachinesController : Controller
   {
-
     private readonly FactoryContext _db;
     public MachinesController(FactoryContext db)
     {
@@ -18,16 +17,9 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      // List<Machine> model = null;
-      // if (sortBy ==null)
-      // {
-      //   model = _db.Machines.Include(machine => machine.Engineer).ToList();
-      // } 
-      // else if (sortBy.Equals("date"))
-      // {
-      //   model = _db.Machines.OrderBy(machine => machine.DueDate).Include(machine => machine.Category).ToList();
-      // }
-      return View();
+      List<Machine> model;
+      model = _db.Machines.Include(machine => machine.Engineer).ToList();
+      return View(_db.Machines.ToList());
     }
 
     public ActionResult Create()
@@ -86,10 +78,10 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-        public ActionResult AddEngineer(int id)
+    public ActionResult AddEngineer(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Title");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View(thisMachine);
     }
 
@@ -116,15 +108,15 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost, ActionName("MarkComplete")]
-    public ActionResult MarkComplete(Boolean Completed, int Id)
-    {
-      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == Id);
-      thisMachine.Completed = Completed;
-      _db.Machines.Update(thisMachine);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
-    }
+    // [HttpPost, ActionName("MarkComplete")]
+    // public ActionResult MarkComplete(Boolean Completed, int Id)
+    // {
+    //   Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == Id);
+    //   thisMachine.Completed = Completed;
+    //   _db.Machines.Update(thisMachine);
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Index");
+    // }
 
   }
 }

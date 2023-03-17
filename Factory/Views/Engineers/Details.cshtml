@@ -7,7 +7,7 @@
 
 <h2>Engineer Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</h3>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -19,7 +19,7 @@ else
   <ul>
   @foreach(EngineerMachine join in Model.JoinEntities)
   {
-    <li>@join.Machine.Description</li>
+    <li>@join.Machine.Name</li>
     @using (Html.BeginForm("DeleteJoin", "Engineers"))
     {
       @Html.Hidden("joinId", @join.EngineerMachineId)
