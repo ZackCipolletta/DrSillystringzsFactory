@@ -17,8 +17,8 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      List<Machine> model;
-      model = _db.Machines.Include(machine => machine.Engineer).ToList();
+      // List<Machine> model;
+      // model = _db.Machines.Include(machine => machine.Engineer).ToList();
       return View(_db.Machines.ToList());
     }
 
@@ -51,7 +51,10 @@ namespace Factory.Controllers
 
     public ActionResult Edit(int id)
     {
-      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      Machine thisMachine = _db.Machines
+      .Include(Machine => Machine.JoinEntities)
+      .ThenInclude(join => join.Engineer)
+      .FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
 
