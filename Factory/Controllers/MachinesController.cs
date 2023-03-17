@@ -16,33 +16,33 @@ namespace Factory.Controllers
       _db = db;
     }
 
-    public ActionResult Index(string sortBy)
+    public ActionResult Index()
     {
-      List<Machine> model = null;
-      if (sortBy ==null)
-      {
-        model = _db.Machines.Include(machine => machine.Category).ToList();
-      } 
-      else if (sortBy.Equals("date"))
-      {
-        model = _db.Machines.OrderBy(machine => machine.DueDate).Include(machine => machine.Category).ToList();
-      }
-      return View(model);
+      // List<Machine> model = null;
+      // if (sortBy ==null)
+      // {
+      //   model = _db.Machines.Include(machine => machine.Engineer).ToList();
+      // } 
+      // else if (sortBy.Equals("date"))
+      // {
+      //   model = _db.Machines.OrderBy(machine => machine.DueDate).Include(machine => machine.Category).ToList();
+      // }
+      return View();
     }
 
     public ActionResult Create()
     {
-      ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+      // ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create (Machine machine)
     {
-      if (machine.CategoryId == 0)
-      {
-        return RedirectToAction("Create");
-      }
+      // if (machine.CategoryId == 0)
+      // {
+      //   return RedirectToAction("Create");
+      // }
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -51,7 +51,6 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       Machine thisMachine = _db.Machines
-          .Include(machine => machine.Category)
           .Include(machine => machine.JoinEntities)
           .ThenInclude(join => join.Engineer)          
           .FirstOrDefault(machine => machine.MachineId == id);
@@ -61,7 +60,6 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-      ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
       return View(thisMachine);
     }
 

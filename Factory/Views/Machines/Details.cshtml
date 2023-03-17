@@ -15,10 +15,6 @@
     <span>Not Completed</span>
   }
 
-</h3>
-<h3>Due date: @Model.DueDate.ToShortDateString()</h3>
-<h3>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)<h3>
-
 @if(@Model.JoinEntities.Count == 0)
 {
   <p>This machine does not have any engineers yet!</p>
@@ -40,8 +36,6 @@ else
 }
 
 
-
-<p>@Html.ActionLink("Edit Machine or Category", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Add a Engineer", "AddEngineer", new { id = Model.MachineId })</p>

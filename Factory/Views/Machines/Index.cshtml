@@ -12,7 +12,7 @@
   {
   <li>
     
-    @Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId}) | @machine.Category.Name | @machine.DueDate.ToShortDateString()
+    @Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId}) |  | @machine.DueDate.ToShortDateString()
 
 
     @using (Html.BeginForm("MarkComplete", "Machines"))
