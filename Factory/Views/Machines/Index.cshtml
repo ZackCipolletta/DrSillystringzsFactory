@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model List<Machine>;
+
+<h1>Machines</h1>
+
+<ul>
+  @foreach(Machine machine in Model)
+  {
+  <li>
+    
+    @Html.ActionLink($"{machine.Description}", "Details", new { id = machine.MachineId}) | @machine.Category.Name | @machine.DueDate.ToShortDateString()
+
+
+    @using (Html.BeginForm("MarkComplete", "Machines"))
+{
+    @Html.Hidden("Id", machine.MachineId)
+    @Html.CheckBox("Completed")
+    <input type="submit" value="Save"/>
+}
+  </li>   
+  }
+    <a name="date">@Html.ActionLink("Sort by date", "Index", "Machines", new {sortBy = "date"})</a>
+</ul>
+
+<p>@Html.ActionLink("Add new machine", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
