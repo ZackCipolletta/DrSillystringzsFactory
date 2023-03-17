@@ -1,0 +1,108 @@
+body {
+	background-color: rgb(28, 26, 26);
+	color: rgb(61, 57, 57);
+	font-weight: bolder;
+	font-size: larger;
+	background-image: url('../img/Salon.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	/* Set the height of the container to the height of the viewport */
+}
+
+div#footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	color: #CCC;
+	background: #333;
+	padding: 8px;
+}
+
+.container {
+	
+	max-width: 800px;
+	max-height: 750px;
+	overflow: auto;
+	margin: 0 auto;
+	padding: 1rem;
+	background-color: #e9e6e6d3;
+}
+
+.justify-right {
+	float: right;
+}
+
+.bottom-link {
+	display: flex;
+	justify-content: space-between;
+}
+
+.span-left {
+	display: inline-block;
+	text-align: left;
+}
+
+.span-center {
+	display: inline-block;
+	text-align: center;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.btn {
+	color: #333;
+	background-color: #eee;
+}
+
+ul {
+	padding: 0;
+	list-style-type: none;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+p.index-links {
+	line-height: .5em;
+}
+
+.right-side-links {
+	float: right;
+	margin-top: -125px;
+}
+
+.right-side-client-links {
+	float: right;
+	margin-top: -75px;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+.delete-stylist {
+	float: right;
+	margin-top: -50px;
+}
+
+
+a {
+	color: rgb(0, 89, 255);
+}
+
+a:visited {
+	color: rgb(207, 0, 207);
+}
+
+a:hover {
+	color: red;
+}

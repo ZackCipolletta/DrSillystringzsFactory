@@ -14,19 +14,20 @@
   {
     @Html.HiddenFor(model => model.MachineId)
 
-    @Html.LabelFor(model => model.Name)
+    @Html.LabelFor(model => model.Name)<span>: </span>
     @Html.EditorFor(model => model.Name)
 
       <h4>This machine has the following engineers:</h4>
   <ul>
     @foreach (EngineerMachine join in Model.JoinEntities)
     {
-      <li>Engineer: @join.Engineer.Name</li>
+      <li>Engineer: @join.Engineer.Name
       @using (Html.BeginForm("DeleteJoin", "Machines"))
       {
         @Html.Hidden("joinId", @join.EngineerMachineId)
         <input type="submit" value="Delete"/>
       }
+      </li>
     }
   </ul>
 
@@ -36,4 +37,5 @@
     <input type="submit" value="Save" />
   }
 </div>
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<br>
+<p class="nav">@Html.ActionLink("Back to list", "Index")</p>

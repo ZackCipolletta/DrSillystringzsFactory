@@ -52,9 +52,9 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       Machine thisMachine = _db.Machines
-      .Include(Machine => Machine.JoinEntities)
-      .ThenInclude(join => join.Engineer)
-      .FirstOrDefault(machine => machine.MachineId == id);
+                            .Include(Machine => Machine.JoinEntities)
+                            .ThenInclude(join => join.Engineer)
+                            .FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
 

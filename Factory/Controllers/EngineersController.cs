@@ -65,7 +65,10 @@ namespace Factory.Controllers
     }
     public ActionResult Edit(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
+      Engineer thisEngineer = _db.Engineers
+                              .Include(Engineer => Engineer.JoinEntities)
+                              .ThenInclude(join => join.Machine)
+                              .FirstOrDefault(engineers => engineers.EngineerId == id);
       return View(thisEngineer);
     }
 
