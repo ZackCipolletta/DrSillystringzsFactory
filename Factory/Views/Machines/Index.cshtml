@@ -5,7 +5,8 @@
 @using Factory.Models;
 @model List<Machine>;
 
-<h1>Machines</h1>
+<h1 class="mb-3">Machines</h1>
+<hr>
 
 <ul>
   @foreach(Machine machine in Model)
@@ -17,6 +18,8 @@
   }
     @* <a name="date">@Html.ActionLink("Sort by date", "Index", "Machines", new {sortBy = "date"})</a> *@
 </ul>
+<br>
 
+<hr>
 <p class="nav">@Html.ActionLink("Add new machine", "Create")</p>
 <p class="nav">@Html.ActionLink("Home", "Index", "Home")</p>
