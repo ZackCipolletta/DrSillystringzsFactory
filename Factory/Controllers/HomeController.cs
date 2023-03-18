@@ -24,7 +24,6 @@ namespace Factory.Controllers
       model.Add("machines", machines);
       model.Add("engineers", engineers);
       return View(model);
-      return View();
     }
 
   }
