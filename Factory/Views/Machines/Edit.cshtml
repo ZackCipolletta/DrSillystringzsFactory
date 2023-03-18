@@ -16,8 +16,10 @@
     @Html.EditorFor(model => model.Name)<br> 
     <p class="mt-2 mb-0">@Html.LabelFor(model => model.Description)</p>
     @Html.EditorFor(model => model.Description)
+    <p class="mb-0">@Html.LabelFor(model => model.Status)</p>
+    <p class="mb-0">@Html.DropDownListFor(model => model.Status, new SelectList(Enum.GetValues(typeof(MachineStatus))), "Select Status")</p>
     <br>
-    <input type="submit" value="Save"  class="mt-1"/>
+    <input type="submit" value="Save"  class="btn btn-primary" />
   }
   <br>
   <h4>This machine has the following engineers:</h4>
@@ -29,14 +31,11 @@
         @using (Html.BeginForm("DeleteJoin", "Machines"))
         {
           @Html.Hidden("joinId", @join.EngineerMachineId)
-          <input type="submit" value="Delete"/>
+          <input type="submit" class="btn btn-primary"  value="Delete"/>
         }
         </li>
       }
   </ul>
-
-    @* <span>Due date: </span> *@
-    @* <input type="date">  *@
 
 <br>
 <hr class="my-2">
