@@ -14,10 +14,10 @@
   <p class="text-danger">@Html.ValidationMessageFor(model => model.Name)</p>
   @Html.LabelFor(model => model.Details)<br>
   <p>@Html.TextBoxFor(model => model.Details)</p>
-  <p class="text-danger">@Html.ValidationMessageFor(model => model.Name)</p>
+  <p class="text-danger">@Html.ValidationMessageFor(model => model.Details)</p>
 
   <input type="submit" value="Add new engineer" class="btn btn-primary mt-1" />
-}
+}  
 <br>
 <hr class="my-2">
 <p class="nav">@Html.ActionLink("Show all engineers", "Index")</p>

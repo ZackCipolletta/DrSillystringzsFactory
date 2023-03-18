@@ -10,12 +10,19 @@
 <br>
 @using (Html.BeginForm())
 {
+  if((int)@ViewBag.EngineerCount == 0)
+  {
+    <p>No engineers have been added yet!</p>
+  }
+  else
+  {
     @Html.HiddenFor(model => model.MachineId)
 
     @Html.Label("Select engineer")<br>
     @Html.DropDownList("EngineerId")
 
     <input type="submit" value="Save" />
+  }
 }
 <br>
 <hr class="my-2">
