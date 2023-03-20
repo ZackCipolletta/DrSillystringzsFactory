@@ -43,6 +43,14 @@ a:active{
 }
 
 h1{
+	--stroke-color: rgba(0, 0, 0, 0.773);
+	--stroke-width: 1px;
 	color: rgb(252, 57, 203);
+	text-shadow: 
+		1px 1px var(--stroke-width) var(--stroke-color),
+		-1px 1px var(--stroke-width)var(--stroke-color),
+		-1px -1px var(--stroke-width) var(--stroke-color),
+		1px -1px var(--stroke-width) var(--stroke-color)
+	;
 	background-color: rgba(196, 255, 235, 0.692);
 }
