@@ -17,14 +17,11 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      // List<Machine> model;
-      // model = _db.Machines.Include(machine => machine.Engineer).ToList();
       return View(_db.Machines.ToList());
     }
 
     public ActionResult Create()
     {
-      // ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
       return View();
     }
 
@@ -114,16 +111,6 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-    // [HttpPost, ActionName("MarkComplete")]
-    // public ActionResult MarkComplete(Boolean Completed, int Id)
-    // {
-    //   Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == Id);
-    //   thisMachine.Completed = Completed;
-    //   _db.Machines.Update(thisMachine);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
 
   }
 }
